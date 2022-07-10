@@ -1,4 +1,4 @@
-# to-do list
+# To-do List
 
 This is my new flutter project, a to-do list, it was done through the course I'm doing [Curso: Criação de Apps Android/iOS/Web com Flutter - 5 cursos em 1](https://www.udemy.com/course/curso-completo-flutter-app-android-ios/)
 I hope you like the app!!
