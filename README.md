@@ -1,16 +1,14 @@
-# lista_de_tarefas
+# to-do list
 
-A new Flutter project.
+This is my new flutter project, a to-do list, it was done through the course I'm doing [Curso: Criação de Apps Android/iOS/Web com Flutter - 5 cursos em 1](https://www.udemy.com/course/curso-completo-flutter-app-android-ios/)
+I hope you like the app!!
 
-## Getting Started
+## Install The App
 
-This project is a starting point for a Flutter application.
+To install the application on your cell phone, just go to the folder ...(Coming soon)
 
-A few resources to get you started if this is your first Flutter project:
+## Social Network
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [My Linkedin](https://www.linkedin.com/in/gabriel-santos-b53632196/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
