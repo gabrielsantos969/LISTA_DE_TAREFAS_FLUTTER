@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:lista_de_tarefas/models/todo.dart';
 import '../widgets/todo_listen_item.dart';
 
 class ToDoListPage extends StatefulWidget {
@@ -10,7 +10,7 @@ class ToDoListPage extends StatefulWidget {
 }
 
 class _ToDoListPageState extends State<ToDoListPage> {
-  List<String> todos = [];
+  List<Todo> todos = [];
 
   final TextEditingController todosController = TextEditingController();
 
@@ -42,7 +42,11 @@ class _ToDoListPageState extends State<ToDoListPage> {
                       onPressed: () {
                         String text = todosController.text;
                         setState((){
-                          todos.add(text);
+                          Todo newTodo = Todo(
+                            title: text,
+                            dateTime: DateTime.now(),
+                          );
+                          todos.add(newTodo);
                         });
                         todosController.clear();
                       },
@@ -62,9 +66,10 @@ class _ToDoListPageState extends State<ToDoListPage> {
                   child: ListView(
                     shrinkWrap: true,
                     children: [
-                      for(String todo in todos)
+                      for(Todo todo in todos)
                         TodoListenItem(
-                          title: todo,
+                          todo: todo,
+                          onDelete: onDelete,
                         ),
 
                     ]
@@ -99,6 +104,12 @@ class _ToDoListPageState extends State<ToDoListPage> {
         ),
       ),
     );
+  }
+  void onDelete(Todo todo){
+    setState((){
+      todos.remove(todo);
+    });
+
   }
 }
 

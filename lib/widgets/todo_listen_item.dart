@@ -1,34 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:intl/intl.dart';
+
+import '../models/todo.dart';
 
 class TodoListenItem extends StatelessWidget {
-  const TodoListenItem({Key? key, required this.title}) : super(key: key);
+  const TodoListenItem({
+    Key? key,
+    required this.todo,
+    required this.onDelete,
+  }) : super(key: key);
 
-  final String title;
+  final Todo todo;
+  final Function(Todo) onDelete;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 2),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4),
-        color: Colors.grey[200],
-      ),
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            '20/12/2015',
-            style: TextStyle(fontSize: 12),
-          ),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2),
+      child: Slidable(
+        actionPane: const SlidableDrawerActionPane(),
+        secondaryActions: [
+          IconSlideAction(
+            color: Colors.red,
+            icon: Icons.delete,
+            caption: 'Deletar',
+            onTap: () {
+              onDelete(todo);
+            },
+          )
         ],
+        actionExtentRatio: 0.2,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(4),
+            color: Colors.grey[200],
+          ),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                DateFormat('dd/MM/yyyy - HH:mm').format(todo.dateTime),
+                style: TextStyle(fontSize: 12),
+              ),
+              Text(
+                todo.title,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
